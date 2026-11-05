@@ -24,32 +24,57 @@ a{color:#3B8BFF;text-decoration:none}
 <body>
 <div class="badge">PRO GAINS</div>
 <h1>Privacy Policy</h1>
-<p class="date">Effective Date: March 27, 2026</p>
+<p class="date">Effective Date: November 4, 2026</p>
 
-<p>PRo Gains ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use the PRo Gains mobile application.</p>
+<p>PRo Gains ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains what the PRo Gains mobile app sends off your device, what stays on your device, and which service providers process data so the app can run.</p>
+
+<p>In this policy, <strong>collected</strong> means information that leaves your device and is stored or processed by us or a service provider. Information that stays only on your device is not collected.</p>
 
 <h2>What Data We Collect</h2>
-<p>We collect the following information when you create an account and use PRo Gains:</p>
+<p>We collect the following when you create an account and use features that sync off your device:</p>
 <ul>
-<li><strong>Account information:</strong> Email address and display name</li>
-<li><strong>Workout data:</strong> Exercises, sets, reps, weights, workout dates, and personal records</li>
-<li><strong>Body metrics:</strong> Body weight, measurements, and progress photos (if you choose to log them)</li>
+<li><strong>Account:</strong> Email address, display name, and user ID, stored with Supabase Auth.</li>
+<li><strong>Profile:</strong> Height, weight, and other profile fields you enter. These profile fields are saved in our database.</li>
+<li><strong>Finished runs:</strong> When you finish a run, we upload that session to run sessions (run_sessions). The upload includes distance, duration, pace, calories, elevation, speed, splits, and the precise GPS route points from the run.</li>
+<li><strong>Precise location:</strong> The app uses precise GPS to record a run, including in the background while that run is active, so tracking continues when your phone is locked. Route points from the run are uploaded with the finished session. Location is used to record your run.</li>
+<li><strong>Purchases:</strong> Apple subscriptions are billed through the App Store (StoreKit) and validated by RevenueCat. RevenueCat is linked to your Supabase user ID so the app can check entitlements. Product identifiers are pro.monthly, pro.yearly, pro.platinum.monthly, and pro.platinum.yearly. Payment card numbers stay with Apple.</li>
 </ul>
+
+<h2>Data That Stays on Your Device</h2>
+<p>The following is stored only on your device. It is not uploaded, and it is not collected:</p>
+<ul>
+<li><strong>Strength workout logs:</strong> Sets, reps, and weights</li>
+<li><strong>Nutrition logs</strong></li>
+<li><strong>Body measurements</strong> other than the height and weight saved on your synced profile</li>
+<li><strong>Recovery check-ins</strong></li>
+<li><strong>Achievements</strong></li>
+<li><strong>Progress photos and camera images</strong></li>
+</ul>
+
+<h2>Apple Health (HealthKit)</h2>
+<ul>
+<li><strong>Read:</strong> During runs and strength workouts, the app reads heart rate from Apple Health. Those samples stay on your device. They are not sent to Supabase.</li>
+<li><strong>Write:</strong> The app writes finished runs and strength workouts into Apple Health on your device.</li>
+</ul>
+<p>We do not sell HealthKit data or use it for advertising or analytics.</p>
 
 <h2>How Your Data Is Stored</h2>
 <ul>
-<li><strong>Cloud storage:</strong> Your account and workout data is stored in a Supabase PostgreSQL database with row-level security. Data is encrypted in transit and at rest.</li>
-<li><strong>Local storage:</strong> A local SQLite database on your device enables offline access and syncs with the cloud when connectivity is available.</li>
+<li><strong>Cloud:</strong> Supabase Auth and a Supabase PostgreSQL database with row-level security store your account, your profile, and finished runs (run_sessions). Data is encrypted in transit and at rest. Those are the cloud writes. Progress photos and strength workout logs stay on your device.</li>
+<li><strong>On your device:</strong> Strength logs, nutrition logs, body measurements beyond profile height and weight, recovery check-ins, achievements, and progress photos remain on your device.</li>
 </ul>
 
-<h2>What We Do Not Do</h2>
+<h2>Service Providers</h2>
+<p>We do not sell or rent your personal data. We share data only with service providers that process it to operate PRo Gains:</p>
 <ul>
-<li><strong>No third-party sharing:</strong> We do not sell, rent, or share your personal data with third parties.</li>
-<li><strong>No analytics tracking:</strong> We do not use third-party analytics, advertising SDKs, or tracking pixels. We do not track your behavior across apps or websites.</li>
+<li><strong>Supabase</strong> — authentication and database hosting for your account, profile, and uploaded runs.</li>
+<li><strong>Apple</strong> — App Store and StoreKit billing for subscriptions.</li>
+<li><strong>RevenueCat</strong> — subscription receipt validation and entitlements, linked to your Supabase user ID.</li>
 </ul>
+<p>We do not use advertising SDKs, App Tracking Transparency (ATT) tracking, third-party analytics, or advertising pixels.</p>
 
 <h2>How to Delete Your Data</h2>
-<p>You can delete your account and all associated data at any time from within the app under Settings &gt; Account &gt; Delete Account. Upon deletion, all of your data is permanently removed from our servers within 30 days.</p>
+<p>You can delete your account and the data we store for it at any time from within the app under Settings &gt; Account &gt; Delete Account. Upon deletion, your account, profile, and uploaded runs are permanently removed from our servers within 30 days. Information that stays only on your device is not stored on our servers.</p>
 
 <h2>GDPR Compliance</h2>
 <p>If you are located in the European Economic Area, you have the right to:</p>
@@ -69,6 +94,7 @@ a{color:#3B8BFF;text-decoration:none}
 <li>Request deletion of your personal information</li>
 <li>Opt out of the sale of your personal information (we do not sell your data)</li>
 </ul>
+<p>Sharing with the service providers listed above is processing needed to provide the app. It is not a sale of personal information.</p>
 
 <h2>Changes to This Policy</h2>
 <p>We may update this Privacy Policy from time to time. We will notify you of material changes through the app or via email.</p>
